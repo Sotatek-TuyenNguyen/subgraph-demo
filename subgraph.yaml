@@ -1,0 +1,65 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Reward_pool
+    network: bsc
+    source:
+      address: "0xF0c54801E775D83196b50067103D136682d37e3f"
+      abi: Reward_pool
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - AdminTokenRecovery
+        - ChangeToken
+        - Claim
+        - Deposit
+        - EmergencyWithdraw
+        - OwnershipTransferred
+        - SetEmergencyWithdraw
+        - SetMaxTotalStake
+        - SetMinMax
+        - SetPenaltyWallet
+        - SetRewardDistributionAddress
+        - SetWithdrawFeeParam
+        - SetWithdrawTime
+        - UpdateAdmin
+        - Withdraw
+      abis:
+        - name: Reward_pool
+          file: ./abis/Reward_pool.json
+      eventHandlers:
+        - event: AdminTokenRecovery(address,uint256)
+          handler: handleAdminTokenRecovery
+        - event: ChangeToken(address)
+          handler: handleChangeToken
+        - event: Claim(indexed address,uint256)
+          handler: handleClaim
+        - event: Deposit(indexed address,uint256)
+          handler: handleDeposit
+        - event: EmergencyWithdraw(uint256)
+          handler: handleEmergencyWithdraw
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: SetEmergencyWithdraw(bool)
+          handler: handleSetEmergencyWithdraw
+        - event: SetMaxTotalStake(uint256)
+          handler: handleSetMaxTotalStake
+        - event: SetMinMax(uint256,uint256)
+          handler: handleSetMinMax
+        - event: SetPenaltyWallet(indexed address)
+          handler: handleSetPenaltyWallet
+        - event: SetRewardDistributionAddress(indexed address)
+          handler: handleSetRewardDistributionAddress
+        - event: SetWithdrawFeeParam(int256,int256,int256)
+          handler: handleSetWithdrawFeeParam
+        - event: SetWithdrawTime(uint256)
+          handler: handleSetWithdrawTime
+        - event: UpdateAdmin(indexed address,bool)
+          handler: handleUpdateAdmin
+        - event: Withdraw(indexed address,uint256,uint256)
+          handler: handleWithdraw
+      file: ./src/reward-pool.ts
