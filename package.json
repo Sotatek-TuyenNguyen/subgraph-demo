@@ -8,6 +8,7 @@
     "create-local": "graph create --node http://localhost:8020/ tuyen.nguyen/web3class",
     "remove-local": "graph remove --node http://localhost:8020/ tuyen.nguyen/web3class",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 tuyen.nguyen/web3class",
+    "deploy-bsc": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ sotatek-tuyennguyen/web3-demo --access-token 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",
     "test": "graph test"
   },
   "dependencies": {

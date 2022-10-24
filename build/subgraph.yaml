@@ -1,6 +1,6 @@
 specVersion: 0.0.4
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: Reward_pool
@@ -31,7 +31,7 @@ dataSources:
         - Withdraw
       abis:
         - name: Reward_pool
-          file: ./abis/Reward_pool.json
+          file: Reward_pool\abis\Reward_pool.json
       eventHandlers:
         - event: AdminTokenRecovery(address,uint256)
           handler: handleAdminTokenRecovery
@@ -63,4 +63,4 @@ dataSources:
           handler: handleUpdateAdmin
         - event: Withdraw(indexed address,uint256,uint256)
           handler: handleWithdraw
-      file: ./src/reward-pool.ts
+      file: Reward_pool\Reward_pool.wasm
